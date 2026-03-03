@@ -82,7 +82,7 @@ export function DashboardNavbar({ activeTab }: DashboardNavbarProps) {
           <div className="relative">
             <button 
               onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
-              className={`text-gray-400 hover:text-white border border-gh-border rounded-md p-1.5 transition-colors relative ${isNotificationsOpen ? 'bg-gh-border text-white' : ''}`}
+              className={`text-gray-400 hover:text-white p-1.5 transition-colors relative ${isNotificationsOpen ? 'bg-gh-border text-white rounded-md' : ''}`}
             >
               <Bell size={16} />
               {notifications.length > 0 && (
