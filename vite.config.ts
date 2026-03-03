@@ -17,8 +17,8 @@ export default defineConfig(({mode}) => {
           name: 'Habit Tracker',
           short_name: 'Habits',
           description: 'A simple and elegant habit tracker',
-          theme_color: '#0d1117',
-          background_color: '#0d1117',
+          theme_color: '#0a0a0a',
+          background_color: '#0a0a0a',
           display: 'standalone',
           icons: [
             {
