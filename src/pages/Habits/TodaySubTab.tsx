@@ -62,13 +62,13 @@ export function TodaySubTab({ isModalOpen, setIsModalOpen }: TodaySubTabProps) {
   };
 
   const weekDays = [
+    { id: 0, label: 'Dom' },
     { id: 1, label: 'Seg' },
     { id: 2, label: 'Ter' },
     { id: 3, label: 'Qua' },
     { id: 4, label: 'Qui' },
     { id: 5, label: 'Sex' },
     { id: 6, label: 'Sáb' },
-    { id: 0, label: 'Dom' },
   ];
 
   useEffect(() => {
