@@ -48,25 +48,25 @@ export function LoginPage() {
       </div>
 
       {/* Bottom Section - Dark Sheet */}
-      <div className="bg-[#050505] rounded-t-[32px] -mt-6 relative z-20 px-6 pt-6 pb-8 flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.5)] border-t border-white/5">
+      <div className="bg-[#050505] rounded-t-[32px] -mt-6 relative z-20 px-6 pt-8 pb-14 flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.5)] border-t border-white/5">
         <div className="mb-5">
           <h2 className="text-lg font-bold text-white mb-0.5">Bem-vindo</h2>
           <p className="text-gray-500 text-[10px]">Insira seus dados para continuar</p>
         </div>
 
-        <form onSubmit={handleLogin} className="space-y-3">
+        <form onSubmit={handleLogin} className="space-y-5">
           {/* Username Input */}
           <div className="space-y-1">
             <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                <User size={14} className="text-gray-500" />
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <User size={18} className="text-gray-500" />
               </div>
               <input
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Nome de usuário"
-                className="w-full bg-[#0f1218] text-white placeholder-gray-600 rounded-xl py-2.5 pl-10 pr-4 border border-white/5 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all text-[11px] font-medium"
+                className="w-full bg-[#0f1218] text-white placeholder-gray-600 rounded-xl py-4 pl-12 pr-4 border border-white/5 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all text-sm font-medium"
               />
             </div>
           </div>
@@ -74,15 +74,15 @@ export function LoginPage() {
           {/* Password Input */}
           <div className="space-y-1">
             <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                <Lock size={14} className="text-gray-500" />
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <Lock size={18} className="text-gray-500" />
               </div>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Senha"
-                className="w-full bg-[#0f1218] text-white placeholder-gray-600 rounded-xl py-2.5 pl-10 pr-4 border border-white/5 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all text-[11px] font-medium"
+                className="w-full bg-[#0f1218] text-white placeholder-gray-600 rounded-xl py-4 pl-12 pr-4 border border-white/5 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all text-sm font-medium"
               />
             </div>
           </div>
@@ -91,7 +91,7 @@ export function LoginPage() {
             <motion.div 
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-red-400 text-[9px] font-medium bg-red-500/10 p-2 rounded-lg border border-red-500/20"
+              className="text-red-400 text-[10px] font-medium bg-red-500/10 p-3 rounded-lg border border-red-500/20"
             >
               {error}
             </motion.div>
@@ -100,10 +100,10 @@ export function LoginPage() {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white font-bold py-2.5 rounded-xl shadow-lg shadow-blue-900/20 flex items-center justify-between px-4 hover:bg-blue-500 transition-all active:scale-[0.98] mt-3"
+            className="w-full bg-blue-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-900/20 flex items-center justify-between px-6 hover:bg-blue-500 transition-all active:scale-[0.98] mt-4"
           >
-            <span className="text-xs">Acessar conta</span>
-            <ArrowRight size={16} />
+            <span className="text-sm">Acessar conta</span>
+            <ArrowRight size={20} />
           </button>
         </form>
 
