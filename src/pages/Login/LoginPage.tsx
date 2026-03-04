@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CheckCircle2, ArrowRight, User, Lock } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
+import { Check, User, Lock, ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
 
 export function LoginPage() {
@@ -22,106 +21,98 @@ export function LoginPage() {
   };
 
   return (
-    <div className="h-[100dvh] w-screen flex flex-col relative overflow-hidden bg-gh-bg">
+    <div className="h-[100dvh] w-screen flex flex-col relative overflow-hidden bg-[#0a0a0a]">
       
-      {/* Top Section - Vibrant Gradient Background */}
-      <div className="flex-1 bg-gradient-to-br from-purple-600 via-purple-500 to-blue-500 relative flex flex-col items-center justify-center p-6 text-center">
-        {/* Abstract shapes/glow for depth */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[-20%] left-[-20%] w-[80%] h-[80%] bg-white/10 rounded-full blur-[100px]" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-blue-400/20 rounded-full blur-[80px]" />
-        </div>
-
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="relative z-10 flex flex-col items-center"
-        >
-          <div className="bg-white/20 p-4 rounded-3xl backdrop-blur-sm shadow-xl mb-6 border border-white/30">
-            <CheckCircle2 size={48} className="text-white" strokeWidth={2.5} />
+      {/* Top Section - Dark Background */}
+      <div className="flex-1 bg-[#070e18] flex flex-col items-center justify-center p-6 pb-10 relative">
+        {/* Subtle radial glow to prevent it from being too flat */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_70%)]" />
+        
+        <div className="flex flex-col items-center gap-3 z-10">
+          {/* Logo Container */}
+          <div className="w-14 h-14 bg-white/5 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg border border-white/10">
+            <div className="w-9 h-9 bg-white rounded-full flex items-center justify-center">
+              <Check size={18} className="text-[#070e18] stroke-[4]" />
+            </div>
           </div>
-          <h1 className="text-3xl font-bold text-white tracking-tight mb-2 drop-shadow-md">
-            Habit Tracker
-          </h1>
-          <p className="text-white/80 text-sm font-medium max-w-[200px]">
-            Transforme sua rotina em resultados extraordinários.
-          </p>
-        </motion.div>
+          
+          <div className="text-center">
+            <h1 className="text-xl font-bold text-white mb-1 tracking-tight">
+              Habit Tracker
+            </h1>
+            <p className="text-white/60 text-[10px] font-medium max-w-[180px] mx-auto leading-relaxed">
+              Transforme sua rotina em resultados extraordinários.
+            </p>
+          </div>
+        </div>
       </div>
 
-      {/* Bottom Sheet - Login Form */}
-      <motion.div 
-        initial={{ y: 100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ type: "spring", damping: 25, stiffness: 200, delay: 0.2 }}
-        className="bg-gh-bg relative z-20 rounded-t-[32px] -mt-6 shadow-[0_-10px_40px_rgba(0,0,0,0.3)] border-t border-white/5"
-      >
-        <div className="p-8 pb-10">
-          <div className="w-12 h-1.5 bg-gh-border rounded-full mx-auto mb-8 opacity-50" />
-          
-          <div className="mb-6">
-            <h2 className="text-2xl font-bold text-white mb-1">Bem-vindo</h2>
-            <p className="text-gh-text-secondary text-sm">Insira seus dados para continuar</p>
+      {/* Bottom Section - Dark Sheet */}
+      <div className="bg-[#050505] rounded-t-[32px] -mt-6 relative z-20 px-6 pt-6 pb-8 flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.5)] border-t border-white/5">
+        <div className="mb-5">
+          <h2 className="text-lg font-bold text-white mb-0.5">Bem-vindo</h2>
+          <p className="text-gray-500 text-[10px]">Insira seus dados para continuar</p>
+        </div>
+
+        <form onSubmit={handleLogin} className="space-y-3">
+          {/* Username Input */}
+          <div className="space-y-1">
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                <User size={14} className="text-gray-500" />
+              </div>
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Nome de usuário"
+                className="w-full bg-[#0f1218] text-white placeholder-gray-600 rounded-xl py-2.5 pl-10 pr-4 border border-white/5 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all text-[11px] font-medium"
+              />
+            </div>
           </div>
 
-          <form onSubmit={handleLogin} className="space-y-4">
-            <div className="space-y-4">
-              <div className="relative group">
-                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gh-text-secondary group-focus-within:text-gh-blue transition-colors">
-                  <User size={20} />
-                </div>
-                <input
-                  type="text"
-                  placeholder="Nome de usuário"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  className="w-full bg-gh-card border border-gh-border rounded-xl py-4 pl-12 pr-4 text-white placeholder:text-gh-text-secondary/50 focus:outline-none focus:border-gh-blue focus:ring-1 focus:ring-gh-blue transition-all"
-                />
+          {/* Password Input */}
+          <div className="space-y-1">
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                <Lock size={14} className="text-gray-500" />
               </div>
-
-              <div className="relative group">
-                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gh-text-secondary group-focus-within:text-gh-blue transition-colors">
-                  <Lock size={20} />
-                </div>
-                <input
-                  type="password"
-                  placeholder="Senha"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full bg-gh-card border border-gh-border rounded-xl py-4 pl-12 pr-4 text-white placeholder:text-gh-text-secondary/50 focus:outline-none focus:border-gh-blue focus:ring-1 focus:ring-gh-blue transition-all"
-                />
-              </div>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Senha"
+                className="w-full bg-[#0f1218] text-white placeholder-gray-600 rounded-xl py-2.5 pl-10 pr-4 border border-white/5 focus:border-blue-500 focus:ring-1 focus:ring-blue-500/50 outline-none transition-all text-[11px] font-medium"
+              />
             </div>
+          </div>
 
-            {error && (
-              <motion.div 
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                className="text-red-400 text-xs font-medium bg-red-500/10 p-3 rounded-lg border border-red-500/20"
-              >
-                {error}
-              </motion.div>
-            )}
+          {error && (
+            <motion.div 
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-red-400 text-[9px] font-medium bg-red-500/10 p-2 rounded-lg border border-red-500/20"
+            >
+              {error}
+            </motion.div>
+          )}
 
-            <div className="pt-2">
-              <Button 
-                type="submit" 
-                className="w-full h-14 text-base font-bold rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 hover:opacity-90 transition-all shadow-lg shadow-blue-500/20 flex items-center justify-between px-6 group"
-              >
-                <span>Acessar conta</span>
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </div>
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white font-bold py-2.5 rounded-xl shadow-lg shadow-blue-900/20 flex items-center justify-between px-4 hover:bg-blue-500 transition-all active:scale-[0.98] mt-3"
+          >
+            <span className="text-xs">Acessar conta</span>
+            <ArrowRight size={16} />
+          </button>
+        </form>
 
-            <div className="pt-4 text-center">
-              <button type="button" className="text-sm text-gh-text-secondary hover:text-white transition-colors font-medium">
-                Esqueci minha senha
-              </button>
-            </div>
-          </form>
+        <div className="mt-5 text-center">
+          <button className="text-gray-500 text-[9px] hover:text-white transition-colors">
+            Esqueci minha senha
+          </button>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
