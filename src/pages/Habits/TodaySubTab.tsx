@@ -238,8 +238,7 @@ export function TodaySubTab({ isModalOpen, setIsModalOpen }: TodaySubTabProps) {
                 <motion.div 
                   layout
                   key={habit.id}
-                  onContextMenu={(e) => handleContextMenu(e, 'habit', habit.id, habit.name)}
-                  className={`flex items-center justify-between p-4 rounded-xl border transition-all cursor-context-menu ${
+                  className={`flex items-center justify-between p-4 rounded-xl border transition-all ${
                     isFullyCompleted ? 'bg-green-500/5 border-green-500/20' : 'bg-gh-card border-gh-border hover:border-gh-border/80'
                   }`}
                 >

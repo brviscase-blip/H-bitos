@@ -74,7 +74,7 @@ export function HabitsPage() {
       </div>
 
       {/* Mobile Bottom Navigation Bar */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 h-[80px] bg-gh-card border-t border-gh-border z-40 flex items-center justify-between px-10 pb-2">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 h-[80px] bg-[#070E18] border-t border-gh-border z-40 flex items-center justify-between px-10 pb-2">
         {/* Left Tab: Hoje */}
         <button 
           onClick={() => setActiveSubTab('today')}

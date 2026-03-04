@@ -235,14 +235,14 @@ export function DashboardNavbar({ activeTab }: DashboardNavbarProps) {
               animate={{ opacity: 0.5 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMenuOpen(false)}
-              className="md:hidden fixed inset-0 bg-black z-40"
+              className="md:hidden fixed inset-0 bg-black z-[60]"
             />
             <motion.div
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="md:hidden fixed top-0 left-0 bottom-0 w-64 bg-[#070e18] border-r border-gh-border z-50 shadow-2xl flex flex-col"
+              className="md:hidden fixed top-0 left-0 bottom-0 w-64 bg-[#070e18] border-r border-gh-border z-[70] shadow-2xl flex flex-col"
             >
               <div className="flex-1 flex flex-col">
                 <div className="p-4 flex items-center justify-between mb-2">

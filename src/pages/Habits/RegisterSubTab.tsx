@@ -137,7 +137,7 @@ export function RegisterSubTab({ isModalOpen, setIsModalOpen }: RegisterSubTabPr
             >
               <button 
                 onClick={() => handleDeleteClick(habit.id, habit.name)}
-                className="absolute top-4 right-4 text-gh-text-secondary hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"
+                className="absolute top-4 right-4 text-gh-text-secondary/40 hover:text-red-500 transition-colors"
               >
                 <Trash2 size={16} />
               </button>
