@@ -21,7 +21,7 @@ export function LoginPage() {
   };
 
   return (
-    <div className="h-[100dvh] w-screen flex flex-col relative overflow-hidden bg-[#0a0a0a]">
+    <div className="fixed inset-0 h-[100dvh] w-screen flex flex-col relative overflow-hidden bg-[#0a0a0a] touch-none">
       
       {/* Top Section - Dark Background */}
       <div className="flex-1 bg-[#070e18] flex flex-col items-center justify-center p-6 pb-10 relative">
