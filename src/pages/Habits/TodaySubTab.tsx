@@ -220,7 +220,7 @@ export function TodaySubTab({ isModalOpen, setIsModalOpen }: TodaySubTabProps) {
         {/* Habits Section */}
         <div className="space-y-4">
           <div className="flex items-center gap-2 mb-2">
-            <div className="w-1 h-4 bg-gh-green rounded-full" />
+            <div className="w-1 h-4 bg-gh-blue rounded-full" />
             <h3 className="text-xs font-black text-gh-text-secondary uppercase tracking-[0.2em]">Hábitos do Dia</h3>
           </div>
           

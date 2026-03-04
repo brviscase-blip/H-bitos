@@ -92,11 +92,7 @@ export function HabitsPage() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => activeSubTab === 'today' ? setIsTaskModalOpen(true) : setIsHabitModalOpen(true)}
-            className={`w-16 h-16 rounded-full text-white flex items-center justify-center transition-all shadow-[0_8px_25px_rgba(0,0,0,0.5)] ${
-              activeSubTab === 'today' 
-                ? 'bg-gh-blue shadow-[0_8px_30px_rgba(47,129,247,0.4)]' 
-                : 'bg-gh-green shadow-[0_8px_30px_rgba(35,134,54,0.4)]'
-            }`}
+            className="w-16 h-16 rounded-full text-white flex items-center justify-center transition-all shadow-[0_8px_25px_rgba(0,0,0,0.5)] bg-gh-blue shadow-[0_8px_30px_rgba(47,129,247,0.4)]"
           >
             <Plus size={32} strokeWidth={3} />
           </motion.button>

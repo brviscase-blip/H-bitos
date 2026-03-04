@@ -2,6 +2,6 @@ import React from 'react';
 
 export function BackgroundGlow() {
   return (
-    <div className="fixed top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[800px] h-[800px] bg-gh-blue/10 rounded-full blur-[120px] pointer-events-none z-0" />
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_70%)] pointer-events-none z-0" />
   );
 }

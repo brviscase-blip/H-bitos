@@ -37,30 +37,30 @@ export function CustomCalendar({ selectedDate, onDateSelect, allowedDays }: Cust
   const weekDays = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
 
   return (
-    <div className="bg-gh-card border border-gh-border rounded-xl py-2 px-3 w-full shadow-inner">
-      <div className="flex items-center justify-between mb-1 px-1">
+    <div className="bg-[#0a0a0a] border border-white/10 rounded-2xl py-4 px-4 w-full shadow-xl">
+      <div className="flex items-center justify-between mb-4 px-1">
         <button 
           type="button"
           onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}
-          className="p-1 hover:bg-gh-bg border border-transparent hover:border-gh-border rounded-lg text-gh-text-secondary hover:text-white transition-all"
+          className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 text-gray-500 hover:text-white hover:bg-white/10 transition-all border border-white/5"
         >
           <ChevronLeft size={16} />
         </button>
-        <h3 className="text-xs font-bold text-white tracking-tight uppercase">
+        <h3 className="text-[10px] font-bold text-white tracking-[0.2em] uppercase">
           {format(currentMonth, 'MMMM yyyy', { locale: ptBR })}
         </h3>
         <button 
           type="button"
           onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}
-          className="p-1 hover:bg-gh-bg border border-transparent hover:border-gh-border rounded-lg text-gh-text-secondary hover:text-white transition-all"
+          className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 text-gray-500 hover:text-white hover:bg-white/10 transition-all border border-white/5"
         >
           <ChevronRight size={16} />
         </button>
       </div>
 
-      <div className="grid grid-cols-7 gap-1 mb-0.5">
+      <div className="grid grid-cols-7 gap-1 mb-2">
         {weekDays.map(day => (
-          <div key={day} className="text-[9px] font-black text-gh-text-secondary text-center uppercase tracking-widest opacity-50">
+          <div key={day} className="text-[9px] font-bold text-gray-600 text-center uppercase tracking-widest">
             {day.charAt(0)}
           </div>
         ))}
@@ -79,13 +79,13 @@ export function CustomCalendar({ selectedDate, onDateSelect, allowedDays }: Cust
               disabled={!isAllowed}
               onClick={() => onDateSelect(day)}
               className={`
-                h-7 w-full text-[10px] rounded-lg flex flex-col items-center justify-center transition-all relative border
+                h-9 w-full text-[11px] rounded-xl flex flex-col items-center justify-center transition-all relative border font-bold
                 ${!isCurrentMonth ? 'opacity-20' : ''}
                 ${isSelected 
-                  ? 'bg-gh-blue border-gh-blue text-white font-bold shadow-[0_0_15px_rgba(47,129,247,0.4)] z-10' 
+                  ? 'bg-blue-600 border-blue-500 text-white shadow-lg shadow-blue-900/20 z-10' 
                   : isAllowed 
-                    ? 'bg-gh-bg/50 border-gh-border hover:border-gray-500 text-white cursor-pointer' 
-                    : 'bg-transparent border-transparent text-gray-700 cursor-not-allowed opacity-30'}
+                    ? 'bg-white/5 border-white/5 hover:border-blue-500/50 text-gray-300 cursor-pointer' 
+                    : 'bg-transparent border-transparent text-gray-800 cursor-not-allowed'}
               `}
             >
               <span>{format(day, 'd')}</span>

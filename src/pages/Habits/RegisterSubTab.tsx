@@ -112,7 +112,7 @@ export function RegisterSubTab({ isModalOpen, setIsModalOpen }: RegisterSubTabPr
           <h2 className="text-xl font-bold text-white">Meus Hábitos</h2>
           <p className="text-sm text-gh-text-secondary">Gerencie e cadastre novos hábitos para sua rotina.</p>
         </div>
-        <Button onClick={() => setIsModalOpen(true)} className="hidden md:flex w-full sm:w-auto gap-2 bg-gh-green hover:bg-gh-green-hover text-white font-bold">
+        <Button onClick={() => setIsModalOpen(true)} className="hidden md:flex w-full sm:w-auto gap-2 bg-gh-blue hover:bg-blue-600 text-white font-bold">
           <Plus size={18} /> Novo Hábito
         </Button>
       </div>
@@ -373,7 +373,7 @@ export function RegisterSubTab({ isModalOpen, setIsModalOpen }: RegisterSubTabPr
                   </Button>
                   <Button 
                     type="submit" 
-                    className="flex-1 font-black uppercase tracking-[0.15em] text-xs bg-gh-green hover:bg-gh-green-hover text-white shadow-[0_10px_30px_rgba(35,134,54,0.3)] h-11 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98]"
+                    className="flex-1 font-black uppercase tracking-[0.15em] text-xs bg-gh-blue hover:bg-blue-600 text-white shadow-[0_10px_30px_rgba(47,129,247,0.3)] h-11 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98]"
                   >
                     Salvar Hábito
                   </Button>

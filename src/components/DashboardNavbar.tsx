@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Bell, Menu, X, Check, Home, List, CheckCircle2, LogOut } from 'lucide-react';
+import { Bell, Menu, X, Check, Home, List, CheckCircle2, LogOut, ChevronRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -56,15 +56,10 @@ export function DashboardNavbar({ activeTab }: DashboardNavbarProps) {
           </span>
 
           <button onClick={() => navigate('/habits')} className="hidden md:flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <div className="relative flex items-center justify-center">
-              <svg width="0" height="0" className="absolute">
-                <linearGradient id="dash-logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#60a5fa" />
-                  <stop offset="50%" stopColor="#c084fc" />
-                  <stop offset="100%" stopColor="#9333ea" />
-                </linearGradient>
-              </svg>
-              <CheckCircle2 size={24} stroke="url(#dash-logo-gradient)" className="drop-shadow-[0_0_8px_rgba(96,165,250,0.3)]" />
+            <div className="w-10 h-10 bg-white/5 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-lg border border-white/10">
+              <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
+                <Check size={12} className="text-[#070e18] stroke-[4]" />
+              </div>
             </div>
           </button>
           
@@ -249,18 +244,13 @@ export function DashboardNavbar({ activeTab }: DashboardNavbarProps) {
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
               className="md:hidden fixed top-0 left-0 bottom-0 w-64 bg-[#070e18] border-r border-gh-border z-50 shadow-2xl flex flex-col"
             >
-              <div className="p-4 flex-1">
-                <div className="flex items-center justify-between mb-6">
+              <div className="flex-1 flex flex-col">
+                <div className="p-4 flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
-                    <div className="relative flex items-center justify-center">
-                      <svg width="0" height="0" className="absolute">
-                        <linearGradient id="sidebar-logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#60a5fa" />
-                          <stop offset="50%" stopColor="#c084fc" />
-                          <stop offset="100%" stopColor="#9333ea" />
-                        </linearGradient>
-                      </svg>
-                      <CheckCircle2 size={24} stroke="url(#sidebar-logo-gradient)" className="drop-shadow-[0_0_8px_rgba(96,165,250,0.3)]" />
+                    <div className="w-10 h-10 bg-white/5 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-lg border border-white/10">
+                      <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
+                        <Check size={12} className="text-[#070e18] stroke-[4]" />
+                      </div>
                     </div>
                     <span className="font-bold text-white">Menu</span>
                   </div>
@@ -272,15 +262,38 @@ export function DashboardNavbar({ activeTab }: DashboardNavbarProps) {
                   </button>
                 </div>
 
-                <nav className="flex flex-col mt-4 px-2">
-                  <h3 className="px-3 text-xs font-bold text-gh-text-secondary uppercase tracking-wider mb-2">Navegação</h3>
-                  <div className="flex flex-col gap-1">
+                <nav className="flex flex-col mt-2">
+                  <h3 className="px-4 text-xs font-bold text-gh-text-secondary uppercase tracking-wider mb-2">Navegação</h3>
+                  <div className="flex flex-col">
                     <button 
                       onClick={() => { navigate('/habits'); setIsMenuOpen(false); }}
-                      className={`flex items-center gap-3 px-3 py-3 text-sm font-medium rounded-lg transition-colors w-full text-left ${activeTab === 'habits' ? 'text-white bg-gh-blue/10' : 'text-gh-text-secondary hover:text-white hover:bg-white/5'}`}
+                      className={`w-full px-4 py-3 border-l-2 transition-all group ${
+                        activeTab === 'habits' 
+                          ? 'bg-gh-blue/5 border-gh-blue' 
+                          : 'bg-transparent border-transparent hover:bg-gh-card/50'
+                      }`}
                     >
-                      <List size={18} className={activeTab === 'habits' ? 'text-gh-blue' : 'text-gh-text-secondary'} />
-                      Hábitos
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${
+                            activeTab === 'habits'
+                              ? 'bg-gh-blue text-white shadow-lg shadow-gh-blue/20 ring-1 ring-gh-blue/20'
+                              : 'bg-gh-card border border-gh-border text-gh-text-secondary group-hover:text-white group-hover:border-gh-border/80'
+                          }`}>
+                            <List size={16} strokeWidth={2.5} />
+                          </div>
+                          <div className="text-left">
+                            <p className={`text-xs font-bold leading-tight mb-0.5 ${activeTab === 'habits' ? 'text-white' : 'text-gh-text-secondary group-hover:text-white'}`}>
+                              Hábitos
+                            </p>
+                            <p className="text-[9px] font-bold text-gh-text-secondary uppercase tracking-wider opacity-80">
+                              Gerenciar
+                            </p>
+                          </div>
+                        </div>
+                        
+                        <ChevronRight size={16} className={`text-gh-text-secondary transition-transform group-hover:translate-x-1 ${activeTab === 'habits' ? 'text-gh-blue' : ''}`} />
+                      </div>
                     </button>
                   </div>
                 </nav>
